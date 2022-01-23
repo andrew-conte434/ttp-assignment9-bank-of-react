@@ -8,6 +8,7 @@ import Debits from "./Debits";
 import AccountBalance from "./AccountBalance";
 import Credits from "./Credits";
 
+
 function App() {
   //Create states for balance, credits, debits, and user
   let [balance, setBalance] = useState(null);
@@ -15,7 +16,7 @@ function App() {
   let [credits, setCredits] = useState([]);
   let [user, setUser] = useState({
     name: "bob loblaw",
-    memberSince: "3/7/1987",
+    memberSince: "08/23/1999",
   });
 
   useEffect(() => {
@@ -32,11 +33,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(debits);
+    //console.log(debits);
   }, [debits]);
 
   useEffect(() => {
-    console.log(credits);
+    //console.log(credits);
     totalUp();
   }, [credits]);
 
@@ -45,23 +46,27 @@ function App() {
     let total = null;
     for (let i in credits) {
       total += credits[i].amount;
-      console.log(total);
     }
 
     for (let i in debits) {
       total -= debits[i].amount;
-      console.log(total);
     }
     total = Math.round(total * 100) / 100;
     setBalance(total);
   };
 
   useEffect(() => {
-    console.log(balance);
+    //console.log(balance);
   }, [balance]);
+
+  const mockLogin = (logInInfo) => {
+      setUser( { ...user, name: logInInfo.username } )
+  }  
+
 
   if (balance !== null) {
     return (
+     
       <Router>
         <div>
           <Routes>
@@ -78,26 +83,41 @@ function App() {
               }
             />
 
-            <Route exact path="/debits" element={<Debits debits={debits} />} />
+            <Route 
+              exact 
+              path="/debits" 
+              element={<Debits 
+                debits={debits} 
+                balance = {balance}
+                setDebits = {setDebits}
+                />}
+            />
+            
             <Route
               exact
               path="/credits"
-              element={<Credits credits={credits} />}
+              element={<Credits 
+                credit={credits}
+                balance={balance}
+                setCredits={setCredits}
+                setBalance={setBalance}
+                />}
             />
-
+            
             <Route
               exact
               path="/login"
               element={
                 <LogIn
                   user={user.currentUser}
-                  //mockLogin = {mockLogin}
+                  mockLogin = {mockLogin}
                 />
               }
             />
           </Routes>
         </div>
       </Router>
+    
     );
   } else {
     return <div>Loading</div>;

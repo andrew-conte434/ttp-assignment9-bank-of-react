@@ -1,54 +1,57 @@
-import React, { Component } from 'react'
-import { Navigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Navigate, Link } from 'react-router-dom'
+import Navbar from './Navbar'
 
-class LogIn extends Component {
-  constructor () {
-    super()
-    this.state = {
-      user: {
-        userName: '',
-        password: ''
-      },
-      navigate: false
-    }
-  }
+export default function Login(props) {
+  let [userInfo, setUserInfo] = useState({
+    user : {
+      username : "",
+      password : "",
+    },
+    nav : false
+  })
 
-  handleChange = (e) => {
-    const updatedUser = {...this.state.user}
+
+  const handleChange = (e) => {
+    const updatedUser = userInfo.user
     const inputField = e.target.name
     const inputValue = e.target.value
     updatedUser[inputField] = inputValue
-
-    this.setState({user: updatedUser})
+    setUserInfo(prevUserInfo => ({
+        ...prevUserInfo,
+        user : updatedUser
+    }))
   }
-
-  handleSubmit = (e) => {
+  console.log(userInfo.nav)
+  const handleSubmit = (e) => {
     e.preventDefault()
-    this.props.mockLogIn(this.state.user)
-    this.setState({navigate: true})
+    props.mockLogin(userInfo.user)
+    setUserInfo ({nav : true})
+    console.log(userInfo)
   }
 
-  render () {
-    if (this.state.navigate) {
-      return (<Navigate to="/userProfile"/>)
-    }
 
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="userName">User Name</label>
-            <input type="text" name="userName" onChange={this.handleChange} value={this.state.user.userName} />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" />
-          </div>
-          <button>Log In</button>
-        </form>
-      </div>
-    )
+  if(userInfo.nav){
+    return <Navigate to='/userProfile'/>
   }
+
+  return (
+    <div>
+      <Link to="/">
+            <button className="home-btn">Home</button>
+          </Link>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="userName">User Name</label>
+          <input type="text" name="username" onChange={handleChange} value={userInfo.user.username} />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" onChange={handleChange} value={userInfo.user.password} />
+        </div>
+        <button>Log In</button>
+      </form>
+    </div>
+  )
+  
 }
-
-export default LogIn

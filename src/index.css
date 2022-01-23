@@ -14,7 +14,7 @@ code {
     monospace;
 }
 
-#nav_btns{
+.nav_btns{
   display: flex;
   justify-content: space-between;
   margin: 3% 15%;
@@ -22,10 +22,24 @@ code {
   
 }
 
-#btns{
+.btns{
   font-size: 25px;
+  padding: 10px;
   border-radius: 4px;
   border: 1.5px solid;
+}
+
+.home-btn{
+  margin: 25px auto;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1.5px solid;
+}
+
+.home-btn-div{
+  width: fit-content;
+  margin: 0 auto;
 }
 
 h1{
@@ -38,13 +52,110 @@ h1{
   text-align: center; 
 }
 
-#sans{
+#header{
   display: block;
-  margin: 7% auto 0% auto;
-  width: 40%;
+  margin: 0;
+  width: 100%;
 }
 
 #home_page{
   background-color: rgb(215, 185, 100);
   
 }
+
+#panel {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin: .1% auto;
+  border: 1px grey solid;
+  border-radius: 8px;
+  text-align: left;
+  vertical-align: middle;
+  box-shadow: grey .01px .01px .1px .1px;
+  background-color: rgb(0, 0, 0) ;
+  color: white;
+  line-height: 20px;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+#topPanel {
+  background: rgb(179, 179, 179);
+  display:flex;
+  vertical-align: middle;
+  padding: 10px 20px;
+  line-height: 5px;
+  border-bottom: 1px solid grey;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  justify-content: space-between;
+  padding-top:0px;
+  padding-bottom: 0px;
+  line-height: 20px;
+  word-wrap: break-word;
+  hyphens: auto;
+  
+
+}
+
+#amount_text{
+  font-size: 110%;
+  font-weight: bold;
+  margin: 1% auto 1% 5%;
+}
+
+#date_text{
+  margin-top: 3.8%;
+  font-size: 80%;
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+
+.balance{
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  background-image: url("https://tinyurl.com/4jsuam2b");
+  padding-top:1%;
+  padding-bottom: 1%;
+  font-size: 200%;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(240, 240, 240);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.user-info{
+  margin: 0 auto;
+  justify-content:center;
+  width: fit-content;
+}
+
+.profile_picture{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: 30%;
+  padding-top: 2%;
+}
+
+.statement_box{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 90%;
+  background-color: rgb(212, 216, 216);
+  padding-bottom: 2%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.title{
+  padding-top:2%;
+}
+
