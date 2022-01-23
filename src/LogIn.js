@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 class LogIn extends Component {
   constructor () {
@@ -9,7 +9,7 @@ class LogIn extends Component {
         userName: '',
         password: ''
       },
-      redirect: false
+      navigate: false
     }
   }
 
@@ -25,12 +25,12 @@ class LogIn extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.mockLogIn(this.state.user)
-    this.setState({redirect: true})
+    this.setState({navigate: true})
   }
 
   render () {
-    if (this.state.redirect) {
-      return (<Redirect to="/userProfile"/>)
+    if (this.state.navigate) {
+      return (<Navigate to="/userProfile"/>)
     }
 
     return (
