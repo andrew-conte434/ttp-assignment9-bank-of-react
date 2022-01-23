@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ttp-assignment9-bank-of-react/static/css/main.e64bd8dc.css",
+    "main.js": "/ttp-assignment9-bank-of-react/static/js/main.306c834d.js",
+    "static/js/787.a0815656.chunk.js": "/ttp-assignment9-bank-of-react/static/js/787.a0815656.chunk.js",
+    "index.html": "/ttp-assignment9-bank-of-react/index.html",
+    "main.e64bd8dc.css.map": "/ttp-assignment9-bank-of-react/static/css/main.e64bd8dc.css.map",
+    "main.306c834d.js.map": "/ttp-assignment9-bank-of-react/static/js/main.306c834d.js.map",
+    "787.a0815656.chunk.js.map": "/ttp-assignment9-bank-of-react/static/js/787.a0815656.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e64bd8dc.css",
+    "static/js/main.306c834d.js"
+  ]
+}
